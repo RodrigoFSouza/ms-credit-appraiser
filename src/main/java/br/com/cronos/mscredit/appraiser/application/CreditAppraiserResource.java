@@ -19,9 +19,6 @@ public class CreditAppraiserResource {
     public ResponseEntity<ClientSituation> getCreaditApraiser(@RequestParam("cpf") String cpf) {
         var client = service.getCreditApraiserByCPF(cpf);
 
-        if (client.isEmpty()) {
-            return ResponseEntity.notFound().build();
-        }
-        return ResponseEntity.ok(client.get());
+        return ResponseEntity.ok(client);
     }
 }
